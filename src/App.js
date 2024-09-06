@@ -1,25 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
 
-function App() {
+import React, { useState, useEffect } from 'react';
+import './styles.css';
+import List from './components/List';
+import Detail from './components/Detail';
+
+const App = () => {
+  const [pokemons, setPokemons] = useState([]);
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
+
+
+
+  useEffect(() => {
+    
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=300')
+      .then(response => response.json())
+      .then(data => {
+        setPokemons(data.results); 
+        
+        const randomPokemon = data.results[Math.floor(Math.random() * data.results.length)];
+        fetch(randomPokemon.url)
+          .then(response => response.json())
+          .then(pokemonData => setSelectedPokemon(pokemonData));
+      });
+  }, []);
+
+  
+
+  const handleSelectPokemon = (pokemon) => {
+    setSelectedPokemon(pokemon);
+  };
+
+  const deselectPokemon = () => {
+    setSelectedPokemon(null);
+  };
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+
+      <div className='heading'>
+      <h1>Pokemon Gallery</h1>
+      </div>
+      
+
+
+      <div className="app">
+
+      <div>
+       <List pokemons={pokemons} onSelectPokemon={handleSelectPokemon} />
+      </div>
+     
+     <div>
+     <Detail selectedPokemon={selectedPokemon} deselectPokemon={deselectPokemon} />
+     </div>
+     
+      </div>
+
+     
     </div>
   );
-}
+};
 
 export default App;

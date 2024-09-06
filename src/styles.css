@@ -1,0 +1,138 @@
+
+
+.app {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #b9adc1;
+}
+
+.heading {
+  width: 100%;
+  text-align: center; /* Center the text horizontally */
+  margin-top: 7px; /* Space from the top of the page */
+  margin-bottom: 7px; /* Space below the heading */
+}
+
+
+.heading h1 {
+  font-size: 36px; /* Larger font size for prominence */
+  color: #090101; /* Dark color for contrast */
+  font-weight: bold; /* Bold text for emphasis */
+  text-transform: uppercase; /* Uppercase letters for a strong look */
+  letter-spacing: 12px; /* Spacing between letters for readability */
+  margin: 0; /* Remove default margins */
+  padding: 15px ; /* Add padding above and below the text */
+  background: linear-gradient(45deg, #f3a683, #f7d794); /* Gradient background */
+  color: #000000; /* White text color for contrast */
+  border-radius: 8px; /* Rounded corners for the background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+
+.pokemon-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 30px;
+  max-width: 800px;
+  height: calc(100vh - 40px);
+  overflow-y: auto;
+  margin-right: 30px;
+  padding-left: 20px; /* Add space from the left */
+  padding-right: 20px;
+}
+
+.pokemon-card {
+  background:wheat;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05);
+}
+
+.pokemon-card img {  
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.pokemon-detail {
+  flex: 1;
+  background:wheat;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px; /* Adjust padding to ensure the content fits well */
+  max-width: 600px; /* Fixed width for the detail card */
+  width: 600px; /* Ensure width is fixed */
+  height: 500px; /* Fixed height for the detail card */
+  margin-left: 400px; /* Center the card and adjust margin if needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content */
+  justify-content: center; /* Center content vertically */
+  transition: transform 0.3s, box-shadow 0.3s; /* Add transition for hover effect */
+}
+
+.pokemon-detail:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.pokemon-detail img {
+  width: 200px; /* Fixed width for images */
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Ensure image covers the box */
+  margin-bottom: 20px; /* Space between image and text */
+}
+
+.pokemon-detail h2 {
+  margin: 0 0 20px; /* Space below heading */
+  font-size: 28px; /* Larger font size for headings */
+  color: #333; /* Darker color for headings */
+  text-transform: capitalize; /* Capitalize the first letter of each word */
+  font-weight: bold; /* Make heading text bold */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Add subtle text shadow */
+}
+
+.pokemon-detail p {
+  margin: 10px 0; /* Margin between different details */
+  font-size: 18px; /* Font size for details */
+  color: #444; /* Slightly lighter color for details */
+}
+
+.pokemon-detail p strong {
+  color: #333; /* Darker color for labels */
+  font-size: 18px; /* Same size for labels as details */
+  display: inline-block; /* Ensure labels are inline */
+  margin-right: 5px; /* Space between label and value */
+}
+
+.deselect-button {
+  background-color: #e74c3c; /* Red background color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+  margin-top: 20px; /* Space above the button */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
