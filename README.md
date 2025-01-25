@@ -13,3 +13,6 @@ React: For building the user interface.
 Redux: For managing global state.
 React-Redux Hooks: For connecting React components to the Redux store.
 CSS: For styling the application.
+
+
+start application =  npm run start
